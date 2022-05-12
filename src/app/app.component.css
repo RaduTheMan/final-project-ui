@@ -2,6 +2,26 @@
     justify-content: space-between;
 }
 
+.authentication-area {
+    display: flex;
+}
+
+button, form {
+    margin-left: 1rem;
+}
+
+form {
+    display: flex;
+}
+
 span {
     padding-right: 1rem;
+}
+
+#title {
+    font-size: xx-large;
+}
+
+#home {
+    padding-left: 2rem;
 }
