@@ -1,9 +1,9 @@
-<mat-toolbar color="primary" class="navbar">
+<mat-toolbar *ngIf="isNavbarActive$ | async" color="primary" class="navbar">
   <div>
     <span id="title">{{ title }}</span>
-    <span id="home"><a href="/">Home</a></span>
-    <span><a href="/">About</a></span>
-    <span><a href="/">Posts</a></span>
+    <span id="home"><a routerLink="">Home</a></span>
+    <span><a routerLink="about">About</a></span>
+    <span><a routerLink="">Posts</a></span>
   </div>
   <div class="authentication-area">
       <form [formGroup]="searchFormGroup">
@@ -14,7 +14,9 @@
                (input)="inputValidator($event)"
                (keyup.enter)="onEnter()"> 
       </form>
-    <button mat-raised-button>Login</button>
-    <button mat-raised-button color="accent">Sign-up</button>
+    <button mat-raised-button (click)="loadLoginPage()">Login</button>
+    <button mat-raised-button color="accent" (click)="loadSignUpPage()">Sign-up</button>
   </div>
 </mat-toolbar>
+
+<router-outlet></router-outlet>
