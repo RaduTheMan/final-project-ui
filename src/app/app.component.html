@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="isNavbarActive$ | async" color="primary" class="navbar">
+<!-- <mat-toolbar *ngIf="isNavbarActive$ | async" color="primary" class="navbar">
   <div>
     <span id="title">{{ title }}</span>
     <span id="home"><a routerLink="">Home</a></span>
@@ -17,6 +17,10 @@
     <button mat-raised-button (click)="loadLoginPage()">Login</button>
     <button mat-raised-button color="accent" (click)="loadSignUpPage()">Sign-up</button>
   </div>
-</mat-toolbar>
+</mat-toolbar> -->
 
-<router-outlet></router-outlet>
+<div class="background-standard">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+</div>
+

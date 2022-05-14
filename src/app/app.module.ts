@@ -6,22 +6,30 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AboutComponent, HomeComponent, LoginComponent, SignUpComponent } from './pages';
+import { HomeComponent, LoginComponent, SignUpComponent } from './pages';
+import { SharedModule } from './shared/shared.module';
+import { UserProfileComponent } from './pages/user-profile/user-profile.component';
+import { UserInfoComponent } from './pages/user-profile/user-info/user-info.component';
+import { UserPostsComponent } from './pages/user-profile/user-posts/user-posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserProfileComponent,
+    UserInfoComponent,
+    UserPostsComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
