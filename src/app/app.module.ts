@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent, LoginComponent, SignUpComponent } from './pages';
+import { HomeComponent, LoginComponent } from './pages';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserInfoComponent } from './pages/user-profile/user-info/user-info.component';
@@ -17,7 +17,6 @@ import { UserPostsComponent } from './pages/user-profile/user-posts/user-posts.c
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SignUpComponent,
     UserProfileComponent,
     UserInfoComponent,
     UserPostsComponent

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <div class="ms-md-5">
-        <div class="me-lg-5 ms-lg-5"></div>
+      <div class="me-lg-5 ms-lg-5"></div>
     </div>
-    <a class="navbar-brand logo-size">Writify</a> 
+    <a class="navbar-brand logo-size">Writify</a>
     <!-- de adaugat logo Writify de pe pagina generatoare de nume -->
 
     <button
@@ -36,15 +36,15 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="profile">Profile</a>
         </li>
-        <li class="nav-item" *ngIf="!isAuthenticated">
-          <a class="nav-link" (click)="onLogout()" routerLink="sign-up">Sign up</a>
+        <li class="nav-item dropdown" *ngIf="!isAuthenticated">
+            <app-sign-up></app-sign-up>
         </li>
-        <li class="nav-item" *ngIf="!isAuthenticated">
-          <a class="nav-link" (click)="onLogout()" routerLink="login">Login</a>
+        <li class="nav-item dropdown" *ngIf="!isAuthenticated">
+          <a class="nav-link dropdown-toggle" routerLink="login">Login</a>
         </li>
-        <li class="nav-item" *ngIf="isAuthenticated">
+        <!-- <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" (click)="onLogout()">Logout</a>
-        </li>
+        </li> -->
         <div class="me-lg-5"></div>
       </ul>
     </div>
