@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { AuthService } from 'src/app/services';
 
 @Component({
