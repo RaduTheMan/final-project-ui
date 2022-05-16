@@ -11,6 +11,7 @@ import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserInfoComponent } from './pages/user-profile/user-info/user-info.component';
 import { UserPostsComponent } from './pages/user-profile/user-posts/user-posts.component';
+import { SignUpModalComponent } from './shared/components/sign-up-modal/sign-up-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UserPostsComponent } from './pages/user-profile/user-posts/user-posts.c
     LoginComponent,
     UserProfileComponent,
     UserInfoComponent,
-    UserPostsComponent
+    UserPostsComponent,
+    SignUpModalComponent
     
   ],
   imports: [
