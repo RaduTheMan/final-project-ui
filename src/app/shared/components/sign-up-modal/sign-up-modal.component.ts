@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
@@ -8,9 +8,10 @@ const minNameLength: number = 6;
   templateUrl: './sign-up-modal.component.html',
   styleUrls: ['./sign-up-modal.component.css']
 })
-export class SignUpModalComponent {
+export class SignUpModalComponent implements AfterViewInit {
+  @ViewChild('myModalTrigger') myModalTrigger!: ElementRef;
   formGroup: FormGroup;
-
+ 
   constructor() {
     this.formGroup = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(minNameLength)]),
@@ -20,5 +21,7 @@ export class SignUpModalComponent {
     });
   }
 
-
+  ngAfterViewInit(): void {
+    this.myModalTrigger.nativeElement.click();
+  }
 }

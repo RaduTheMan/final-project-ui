@@ -3,7 +3,7 @@ import firebase from 'firebase/compat/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { Observable, of, switchMap } from 'rxjs';
+import { from, Observable, of, switchMap } from 'rxjs';
 import { User } from './types';
 
 @Injectable({
@@ -28,9 +28,9 @@ export class AuthService {
     );
    }
 
-    googleSignIn() {
+    googleSignIn(): Observable<firebase.auth.UserCredential> {
      const provider = new firebase.auth.GoogleAuthProvider();
-     this.afAuth.signInWithPopup(provider);
+     return from(this.afAuth.signInWithPopup(provider));
    }
 
     signOut() {
