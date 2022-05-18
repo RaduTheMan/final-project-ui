@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services';
 
 @Component({
@@ -6,13 +6,7 @@ import { AuthService } from 'src/app/services';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnDestroy {
+export class LoginComponent {
 
-  constructor(private readonly authService: AuthService) {
-    this.authService.emitAuthStatus(false);
-  }
-
-  ngOnDestroy(): void {
-    this.authService.emitAuthStatus(true);
-  }
+  constructor() {}
 }

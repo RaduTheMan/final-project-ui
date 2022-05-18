@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { AuthService } from './services';
 
 const maxLengthAuthorName = 20;
 @Component({
@@ -13,10 +11,8 @@ const maxLengthAuthorName = 20;
 export class AppComponent {
   title = 'Writify';
   searchFormGroup: FormGroup;
-  isNavbarActive$: Observable<boolean>;
 
-  constructor(private readonly router: Router, private readonly authService: AuthService) {
-    this.isNavbarActive$ = this.authService.isUserNotOnAuthPagesObs;
+  constructor(private readonly router: Router) {
     this.searchFormGroup = new FormGroup({
       authorName: new FormControl(null, Validators.maxLength(maxLengthAuthorName))
     });
@@ -24,8 +20,8 @@ export class AppComponent {
 
   inputValidator(event: any): void {
     const errors = this.searchFormGroup.get('authorName')?.errors;
-    if(errors !== null && errors !== undefined) {
-      if(Object.keys(errors as ValidationErrors).includes('maxlength')){
+    if (errors !== null && errors !== undefined) {
+      if (Object.keys(errors as ValidationErrors).includes('maxlength')){
         const value = event.target.value as String;
         event.target.value = value.slice(0, value.length - 1);
         this.searchFormGroup.get('authorName')?.setValue(event.target.value);
@@ -34,7 +30,7 @@ export class AppComponent {
   }
 
   onEnter(): void {
-    if(this.searchFormGroup.get('authorName')?.valid){
+    if (this.searchFormGroup.get('authorName')?.valid){
       console.log('valid');
     }
   }

@@ -113,6 +113,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "final-project-ui:build:production",
+            "firebaseProject": "final-project-348717",
+            "firebaseHostingSite": "final-project-348717"
+          }
         }
       }
     }

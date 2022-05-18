@@ -12,6 +12,10 @@ import { UserProfileComponent } from './pages/user-profile/user-profile.componen
 import { UserInfoComponent } from './pages/user-profile/user-info/user-info.component';
 import { UserPostsComponent } from './pages/user-profile/user-posts/user-posts.component';
 import { SignUpModalComponent } from './shared/components/sign-up-modal/sign-up-modal.component';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -22,17 +26,19 @@ import { SignUpModalComponent } from './shared/components/sign-up-modal/sign-up-
     UserInfoComponent,
     UserPostsComponent,
     SignUpModalComponent
-    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MaterialModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule, 
+    AppRoutingModule, 
+    BrowserAnimationsModule, 
+    ReactiveFormsModule, 
+    MaterialModule, 
     SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

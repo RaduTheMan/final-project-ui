@@ -36,12 +36,13 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="profile">Profile</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="!isAuthenticated">
+        <li class="nav-item dropdown" *ngIf="(authService.user$ | async) === null">
             <app-sign-up></app-sign-up>
         </li>
-        <li class="nav-item dropdown" *ngIf="!isAuthenticated">
+        <li class="nav-item dropdown" *ngIf="(authService.user$ | async) === null">
           <a class="nav-link dropdown-toggle" routerLink="login">Login</a>
         </li>
+       
         <!-- <li class="nav-item" *ngIf="isAuthenticated">
           <a class="nav-link" (click)="onLogout()">Logout</a>
         </li> -->

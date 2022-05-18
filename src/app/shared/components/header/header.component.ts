@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   isAuthenticated = false;
-  constructor() { }
+  constructor(public readonly authService: AuthService) { }
 
   onLogout() {
     this.isAuthenticated = !this.isAuthenticated;

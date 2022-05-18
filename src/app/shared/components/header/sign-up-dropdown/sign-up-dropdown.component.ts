@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,15 +11,15 @@ export class SignUpDropdownComponent {
 
   formGroup: FormGroup;
 
-  constructor() {
+  constructor(private readonly authService: AuthService) {
     this.formGroup = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required)
     });
   }
 
-  test(): void {
-    console.log(this.formGroup.getRawValue());
+  signUp(): void {
+    this.authService.googleSignIn();
   }
 
 }

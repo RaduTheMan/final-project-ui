@@ -5,7 +5,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SignUpDropdownComponent } from './components/header';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +13,7 @@ import { MaterialModule } from '../material';
     MaterialModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
   ],
   declarations: [HeaderComponent, SignUpDropdownComponent]
 })
