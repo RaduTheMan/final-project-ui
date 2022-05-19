@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { from, take } from 'rxjs';
 import { AuthService } from 'src/app/services';
 
 @Component({
@@ -13,7 +14,12 @@ export class SignUpDropdownComponent {
   constructor(private readonly router: Router, private readonly authService: AuthService) {}
 
   signUp(): void {
-    this.router.navigate(['complete-profile', { comesFromSignUp:  true }]);
+    const navigator = from(this.router.navigate(['complete-profile'], { state : { comesFromSignUp : true } }));
+    navigator.pipe(take(1)).subscribe(response => {
+      if (!response){
+        this.router.navigate(['']);
+      }
+    });
     /*
     this.authService.googleSignIn().subscribe(result => {
       console.log(result);
