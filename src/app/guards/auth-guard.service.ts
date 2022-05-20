@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { catchError, map, Observable, of, switchMap } from 'rxjs';
@@ -12,19 +13,26 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     const condition = this.router.getCurrentNavigation()?.extras?.state?.['comesFromSignUp'];
-    this.userService.getUser('Da2QpGMIJTMpW4UrfqLrhIVn2Cd2').subscribe(user => {
-      console.log(user);
-    });
     if (condition) {
-      return this.authService.googleSignIn().pipe(catchError(_ => of(false)), map(response => {
+      return this.authService.googleSignIn().pipe(catchError(_ => of(false)), switchMap(response => {
         if (typeof response === 'boolean') {
-          return response;
+          return of(response);
         }
         if (response.additionalUserInfo?.isNewUser) {
-          return true;
+         //ducem spre modal
+          return of(true);
         }
-        console.log(response);
-        return false;
+        if (response.user?.uid === undefined) {
+          return of(false);      //de tratat
+        }
+        return this.userService.getUser(response.user.uid);
+      }), catchError(_ => {
+        return of(true);
+      }), switchMap(response => {
+        if (typeof response !== 'boolean') {
+          return of(false);
+        }
+       return of(response);
       }));
     }
     return false;

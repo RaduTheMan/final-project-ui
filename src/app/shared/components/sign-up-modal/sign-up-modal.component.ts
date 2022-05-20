@@ -15,13 +15,18 @@ export class SignUpModalComponent implements AfterViewInit {
   constructor() {
     this.formGroup = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(minNameLength)]),
-      address: new FormControl(null, Validators.required),
+      country: new FormControl(null, Validators.required),
+      city: new FormControl(null, Validators.required),
       birthdate: new FormControl(null, Validators.required),
-      contact: new FormControl(null, [Validators.required, Validators.email]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
     });
   }
 
   ngAfterViewInit(): void {
     this.myModalTrigger.nativeElement.click();
+  }
+
+  onSave(): void {
+    console.log(this.formGroup.getRawValue());
   }
 }
