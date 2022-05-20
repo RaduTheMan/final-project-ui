@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/services';
 })
 export class SignUpDropdownComponent {
 
-  constructor(private readonly router: Router, private readonly authService: AuthService) {}
+  constructor(private readonly router: Router, private readonly authService: AuthService,) {}
 
   signUp(): void {
     const navigator = from(this.router.navigate(['complete-profile'], { state : { comesFromSignUp : true } }));
