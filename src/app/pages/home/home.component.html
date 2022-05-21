@@ -1,3 +1,7 @@
 <p>
   home works!
 </p>
+
+<input type="file" accept=".png, .jpg" (change)="onFileSelected($event)">
+
+<button [disabled]="selectedFile === null" (click)="onUpload()">Upload image</button>

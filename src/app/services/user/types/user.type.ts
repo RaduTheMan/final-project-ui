@@ -4,4 +4,5 @@ export type User = {
     city: string;
     birthdate: string;
     email: string;
+    imageUrl?: string;
 };
