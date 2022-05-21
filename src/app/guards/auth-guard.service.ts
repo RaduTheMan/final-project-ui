@@ -1,4 +1,3 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { catchError, map, Observable, of, switchMap } from 'rxjs';
@@ -13,13 +12,15 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
     const condition = this.router.getCurrentNavigation()?.extras?.state?.['comesFromSignUp'];
+    let uid: string | undefined = '';
     if (condition) {
       return this.authService.googleSignIn().pipe(catchError(_ => of(false)), switchMap(response => {
         if (typeof response === 'boolean') {
           return of(response);
         }
+        uid = response.user?.uid;
         if (response.additionalUserInfo?.isNewUser) {
-         //ducem spre modal
+          this.userService.userFirebaseUid$.next(uid);
           return of(true);
         }
         if (response.user?.uid === undefined) {
@@ -27,9 +28,12 @@ export class AuthGuardService implements CanActivate {
         }
         return this.userService.getUser(response.user.uid);
       }), catchError(_ => {
+        this.userService.userFirebaseUid$.next(uid);
         return of(true);
       }), switchMap(response => {
         if (typeof response !== 'boolean') {
+          this.authService.isLoggedIn = true;
+          this.authService.userId = uid;
           return of(false);
         }
        return of(response);
