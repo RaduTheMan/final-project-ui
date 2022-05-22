@@ -21,7 +21,6 @@
       "rules": {
         "no-multiple-empty-lines": "error",
         "semi": ["error", "always"],
-        "no-magic-numbers": ["error", { "ignoreArrayIndexes": true, "ignore": [0, 1] }],
         "object-curly-spacing": ["error", "always"],
         "quotes": ["error", "single"],
         "max-len": ["error", { "code": 140 }],

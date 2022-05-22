@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { of, switchMap, take } from 'rxjs';
 import { AuthService } from 'src/app/services';
+import { UserToken } from 'src/app/services/user-token';
 import { UserService } from 'src/app/services/user/user.service';
 
 
@@ -43,6 +44,10 @@ export class SignUpModalComponent implements AfterViewInit {
       this.router.navigate(['profile']);
       this.authService.isLoggedIn = true;
       this.authService.userId = userId;
+      this.authService.user$.subscribe(userToken => {
+        this.authService.userToken = userToken;
+        localStorage.setItem('userData', JSON.stringify(userToken));
+      });
     });
   }
 }
