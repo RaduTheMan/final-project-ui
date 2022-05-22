@@ -3,9 +3,10 @@
     <div class="mx-lg-5">
       <div class="container border">
         <div class="container bg-light py-1 mb-3">
-          <app-user-info></app-user-info>
+          <app-user-info [user]="user"></app-user-info>
         </div>
         <div class="container bg-light pb-5">
+          <app-add-post [user]="user"></app-add-post>
           <app-user-posts></app-user-posts>
         </div>
       </div>

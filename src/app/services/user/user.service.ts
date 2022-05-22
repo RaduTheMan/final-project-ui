@@ -14,7 +14,7 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  getUser(id: String): Observable<User> {
+  getUser(id: string): Observable<User> {
     const url = `${environment.apiUrl}/api/users/${id}`;
     return this.http.get<User>(url);
   }

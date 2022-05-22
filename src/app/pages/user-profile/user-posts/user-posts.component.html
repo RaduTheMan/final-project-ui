@@ -1,19 +1,27 @@
 <h2 class="px-sm-5 pt-sm-5">Posts</h2>
 <hr class="px-sm-5" />
-<div class="card mb-3 mx-sm-5 border mt-sm-5" style="max-width: 100%">
+<div class="card mb-3 mx-sm-5 border mt-sm-5" style="max-width: 100%" *ngFor="let post of posts">
   <div class="row g-0">
     <div class="col">
       <div class="card-body">
-        <h3 class="mt-5 ms-sm-5">Dark secrets of UAIC</h3>
-        <div class="col-md-10 px-sm-4 ms-auto">
-            <img
-              src="https://picsum.photos/id/237/600/600"
-              class="img-fluid pt-md-3"
-              alt="profile pic"
-            />
+        <div class="d-flex flex-row">
+          <div class="">
+            <img src="{{ post.userImgUrl }}" class="img-fluid rounded-circle standard-max-size pt-md-3">
           </div>
+          <div class="ms-3 my-auto">
+            <h5>{{ post.name }}</h5>
+            <div class="row">
+              <span>{{ post.dateObj | date: 'medium'}}</span>
+            </div>
+          </div>
+        </div>
+        <h3 class="mt-5 ms-sm-5">{{ post.title }}</h3>
+        <hr class="px-sm-5">
+        <div class="col-md-10 px-sm-4 mx-auto">
+          <img src="{{ post.imgUrl }}" class="img-fluid pt-md-3" alt="profile pic" />
+        </div>
         <p class="card-text mx-3 mt-4">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias beatae sint repellat aspernatur! Repellat impedit inventore iusto commodi dolorem, laborum natus iste suscipit blanditiis non dolores expedita eum animi soluta nemo similique eius dignissimos fugit reprehenderit error maxime odit nobis. Tempore asperiores facere, nisi, culpa quam cum dolorum dolore molestiae ratione natus modi eum laborum placeat impedit eveniet. Perspiciatis earum illo in maxime consequatur animi officiis dicta fugiat, hic tenetur doloremque ipsa architecto cumque, debitis ut! Omnis porro vero eos ab vel quos saepe fuga ea architecto, ad quia magni maiores minus provident deleniti est sit, vitae in praesentium deserunt dolorem nam, culpa amet dolores. Quae, nihil. Aliquid autem aut et tenetur suscipit, corrupti nisi debitis impedit natus ea ullam modi consectetur eos excepturi atque asperiores tempora! Perferendis, delectus hic assumenda commodi quod aspernatur? Obcaecati minima quia vitae magnam unde tenetur praesentium quaerat commodi velit repellat? Repellat dolor quas reiciendis, modi accusantium tenetur optio nulla ad animi nam consequatur itaque laborum iste ipsum aspernatur atque cumque quaerat neque ex ipsa. Eum labore numquam nostrum debitis, sequi illum fuga impedit enim perferendis repellat assumenda laudantium, earum quam recusandae maxime ullam ex explicabo facilis! Reprehenderit ipsum, nesciunt eveniet maxime sequi magni soluta. Voluptatum id dolor facilis laudantium delectus quidem saepe, voluptatibus aliquam harum officiis possimus alias dolorum ducimus quos pariatur sapiente. Est quidem deserunt autem, facere nemo sequi consequuntur veniam. Architecto dolorum suscipit recusandae voluptatem consectetur at perspiciatis ad quisquam, doloribus eius esse eveniet sed. Harum accusantium eius eum reiciendis dolores labore sit non at. Consectetur quis et dolorum esse nam quasi commodi recusandae! Ratione consequuntur illo quibusdam voluptatem, pariatur enim vero cupiditate quod repellendus labore mollitia neque natus ipsam molestias distinctio animi aliquam. Omnis fugit, molestiae ullam quae deserunt cupiditate deleniti labore quis, atque voluptas sint accusantium numquam quas eaque dolore, cumque voluptates ad veritatis odio soluta ipsam temporibus odit. Mollitia minus placeat nesciunt expedita, sunt neque dolorum laudantium asperiores inventore, at voluptas? Minus porro labore itaque earum vero deserunt iusto optio laudantium ut odio illum sit tenetur asperiores voluptatum, quis exercitationem amet cupiditate corporis expedita nisi, reiciendis ullam? Minus tempore suscipit praesentium, ipsa corrupti vel sed repellat corporis enim aut consectetur! Dolorem sed, aspernatur saepe voluptatum suscipit itaque dignissimos, officia quidem in voluptate ipsam fuga eveniet impedit laboriosam fugit modi excepturi omnis sint doloremque exercitationem. Quos, delectus. Natus facilis iste dolores modi culpa repudiandae earum corporis voluptatum animi expedita praesentium adipisci provident minima, eligendi illum error consequuntur nobis quo iusto, voluptatem totam minus numquam ratione. Consequuntur pariatur quod veritatis id quas ipsum ratione laborum distinctio repudiandae sunt atque illum recusandae inventore ea quia, numquam esse, odit excepturi. Minima enim velit repellendus error dicta ut quos, tempore ab beatae illum? Et ipsa laboriosam deserunt, commodi sunt praesentium harum porro! Id totam optio iure distinctio voluptates veniam doloribus tempore porro maiores laboriosam molestiae asperiores repudiandae quaerat velit, quibusdam est, ut corrupti eveniet eius! Vel sunt provident ab neque eligendi quod veritatis explicabo temporibus eaque. Natus nobis error non provident beatae, reprehenderit velit.
+          {{ post.content }}
         </p>
       </div>
     </div>

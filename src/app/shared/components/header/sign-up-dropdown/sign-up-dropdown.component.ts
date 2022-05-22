@@ -17,7 +17,7 @@ export class SignUpDropdownComponent {
     const navigator = from(this.router.navigate(['complete-profile'], { state : { comesFromSignUp : true } }));
     navigator.pipe(take(1)).subscribe(response => {
       if (!response){
-        this.router.navigate(['']);
+        this.router.navigate(['profile', this.authService.userId]);
       }
     });
     /*

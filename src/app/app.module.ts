@@ -17,6 +17,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
+import { AddPostComponent } from './pages/user-profile/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserProfileComponent,
     UserInfoComponent,
     UserPostsComponent,
-    SignUpModalComponent
+    SignUpModalComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,

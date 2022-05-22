@@ -4,6 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, from, Observable } from 'rxjs';
 import { UserToken } from './user-token';
+import { User } from './user/types/user.type';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class AuthService {
   userId: string | undefined = '';
 
   userToken: UserToken | null = null;
+  user: User | undefined;
 
   constructor(
     private readonly afAuth: AngularFireAuth,

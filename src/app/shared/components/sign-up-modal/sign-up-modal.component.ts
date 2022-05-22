@@ -41,7 +41,7 @@ export class SignUpModalComponent implements AfterViewInit {
       userId = uid;
       return this.userService.createUser({ ...data }, uid);
     }), untilDestroyed(this)).subscribe(_ => {
-      this.router.navigate(['profile']);
+      this.router.navigate(['profile', userId]);
       this.authService.isLoggedIn = true;
       this.authService.userId = userId;
       this.authService.user$.subscribe(userToken => {
