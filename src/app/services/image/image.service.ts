@@ -9,8 +9,8 @@ import { environment } from 'src/environments/environment';
 export class ImageService {
   constructor(private readonly httpClient: HttpClient) {}
 
-  uploadImage(data: { image: string }): Observable<unknown> {
-    const url = `${environment.apiUrl}/api/images`;
+  uploadImage(data: { image: string }, userId: string): Observable<unknown> {
+    const url = `${environment.apiUrl}/api/images/${userId}`;
     return this.httpClient.post(url, data);
   }
 }

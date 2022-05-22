@@ -1,5 +1,8 @@
 .standard-max-size {
-    max-width: 30rem;
-    height: 16rem;
-  }
-  
+  max-width: 30rem;
+  height: 16rem;
+}
+
+.back-color {
+  background-color: rgb(226, 217, 217);
+}

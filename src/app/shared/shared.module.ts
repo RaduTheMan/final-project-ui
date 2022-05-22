@@ -5,6 +5,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SignUpDropdownComponent } from './components/header';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { MaterialModule } from '../material';
   ],
   exports: [
     HeaderComponent,
+    SpinnerComponent
   ],
-  declarations: [HeaderComponent, SignUpDropdownComponent]
+  declarations: [HeaderComponent, SignUpDropdownComponent, SpinnerComponent]
 })
 export class SharedModule { }
