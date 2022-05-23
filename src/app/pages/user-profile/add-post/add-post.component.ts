@@ -26,8 +26,8 @@ export class AddPostComponent {
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
     this.userId = this.activatedRoute.snapshot.params['userId'];
     this.formGroup = new FormGroup({
-      title: new FormControl(null, [Validators.required, Validators.maxLength(100)]),
-      content: new FormControl(null, [Validators.required, Validators.minLength(50)])
+      title: new FormControl(null, [Validators.required, Validators.maxLength(150)]),
+      content: new FormControl(null, [Validators.required, Validators.minLength(50), Validators.maxLength(4500)])
     });
   }
 

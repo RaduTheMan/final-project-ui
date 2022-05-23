@@ -15,7 +15,7 @@ import { User } from 'src/app/services/user/types/user.type';
 export class UserPostsComponent implements OnInit {
   @Input() user: User | undefined;
   userId: string;
-  posts: Post[] | undefined;
+  posts: Post[] | null = null;
   isLoading = false;
 
   constructor(private readonly postService: PostService, private readonly route: ActivatedRoute) {

@@ -2,3 +2,7 @@
     width: 3rem;
     height: 5rem;
   }
+
+.no-posts {
+  height: 500px;
+}

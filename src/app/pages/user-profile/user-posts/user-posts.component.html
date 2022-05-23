@@ -9,4 +9,9 @@
   <div class="card mb-3 mx-sm-5 border mt-sm-5" style="max-width: 100%" *ngFor="let post of posts">
     <app-post [post]="post"></app-post>
   </div>
+  <div class="container" *ngIf="posts?.length === 0">
+    <div class="d-flex justify-content-center no-posts">
+      <h2 class="my-auto">There are no posts yet.</h2>
+    </div>
+  </div>
 </div>

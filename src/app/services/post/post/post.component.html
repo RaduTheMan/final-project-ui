@@ -22,7 +22,7 @@
       <pre class="card-text mx-3 mt-4">
         {{ post.content }}
       </pre>
-      <div class="d-flex flex-row-reverse">
+      <div *ngIf="authService.isLoggedIn" class="d-flex flex-row-reverse">
         <button mat-flat-button class="back-color" (click)="onTranslate(post)">
           <mat-icon>translate</mat-icon>
           Translate
@@ -43,6 +43,7 @@
           <mat-icon>pause_circle_outline</mat-icon>
           Pause
         </button>
+        <app-spinner [ngClass]="'my-auto'" *ngIf="isLoadingAudio || isLoadingTranslate"></app-spinner>
       </div>
     </div>
   </div>
