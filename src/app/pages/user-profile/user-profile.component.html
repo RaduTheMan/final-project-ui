@@ -6,7 +6,7 @@
           <app-user-info [user]="user"></app-user-info>
         </div>
         <div class="container bg-light pb-5">
-          <app-add-post [user]="user"></app-add-post>
+          <app-add-post *ngIf="authService.userId === userId" [user]="user"></app-add-post>
           <app-user-posts [user]="user"></app-user-posts>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, take } from 'rxjs';
+import { AuthService } from 'src/app/services';
 import { PostService } from 'src/app/services/post/post.service';
 import { User } from 'src/app/services/user/types/user.type';
 import { UserService } from 'src/app/services/user/user.service';
@@ -17,7 +18,8 @@ export class UserProfileComponent implements OnInit{
 
   constructor(
     private readonly userService: UserService, 
-    private readonly activatedRoute: ActivatedRoute) {
+    private readonly activatedRoute: ActivatedRoute,
+    readonly authService: AuthService) {
     this.userId = this.activatedRoute.snapshot.params['userId'];
   }
   ngOnInit(): void {

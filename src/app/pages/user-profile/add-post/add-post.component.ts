@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { from, of, switchMap } from 'rxjs';
+import { AuthService } from 'src/app/services';
 import { PostService } from 'src/app/services/post/post.service';
 import { User } from 'src/app/services/user/types/user.type';
 import { toBase64 } from 'src/app/shared/utils';

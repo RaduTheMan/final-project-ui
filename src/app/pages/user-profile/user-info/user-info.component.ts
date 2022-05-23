@@ -27,7 +27,7 @@ export class UserInfoComponent implements OnChanges {
     private readonly userService: UserService,
     private activatedRoute: ActivatedRoute,
     private imageService: ImageService,
-    private readonly authService: AuthService
+    readonly authService: AuthService
   ) {
     this.userId = this.activatedRoute.snapshot.params['userId'];
   }

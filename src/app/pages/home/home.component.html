@@ -1,9 +1,48 @@
-<p>
-  home works!
-</p>
-<!-- <div class="">
-  <button mat-mini-fab class="back-color" (click)="uploadButtonClicked()">
-    <mat-icon>add_a_photo</mat-icon>
-  </button>
+<div class="mx-md-5">
+  <div class="mx-md-5">
+    <div class="mx-lg-5">
+      <div class="container border">
+        <div class="container bg-light pb-5">
+          <h2 class="px-sm-5 pt-sm-5">News feed</h2>
+          <hr class="px-sm-5" />
+
+          <div class="d-flex justify-content-center" *ngIf="isLoading">
+            <app-spinner></app-spinner>
+          </div>
+
+          <div class="posts-container" *ngIf="!isLoading">
+            <div class="card mb-3 mx-sm-5 border mt-sm-5" style="max-width: 100%" *ngFor="let post of posts">
+              <div class="row g-0">
+                <div class="col">
+                  <div class="card-body">
+                    <a [routerLink]="['/profile', post.userId]">
+                      <div class="d-flex flex-row">
+                        <div class="">
+                          <img src="{{ post.userImgUrl }}" class="img-fluid rounded-circle standard-max-size pt-md-3" />
+                        </div>
+                        <div class="ms-3 my-auto">
+                          <h5>{{ post.name }}</h5>
+                          <div class="row">
+                            <span>{{ post.dateObj | date: 'medium' }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                    <h3 class="mt-5 ms-sm-5">{{ post.title }}</h3>
+                    <hr class="px-sm-5" />
+                    <div *ngIf="post.imgUrl" class="col-md-10 px-sm-4 mx-auto">
+                      <img src="{{ post.imgUrl }}" class="img-fluid pt-md-3" alt="profile pic" />
+                    </div>
+                    <p class="card-text mx-3 mt-4">
+                      {{ post.content }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<input hidden #uploadImageRef type="file" accept=".png, .jpg" (change)="onFileSelected($event)"> -->

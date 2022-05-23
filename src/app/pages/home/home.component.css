@@ -1,0 +1,13 @@
+.standard-max-size {
+    width: 3rem;
+    height: 5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit; 
+}
+
+a:hover {
+    text-decoration: underline;
+}

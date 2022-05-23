@@ -31,4 +31,9 @@ export class PostService {
     }
     return this.http.get<Post[]>(url, { params });
   }
+
+  getAllPosts(): Observable<Post[]> {
+    const url = `${environment.apiUrl}/api/posts`;
+    return this.http.get<Post[]>(url);
+  }
 }

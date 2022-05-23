@@ -36,7 +36,6 @@ export class UserPostsComponent implements OnInit {
       this.isLoading = false;
       if (data) {
         this.posts = data;
-        console.log(this.posts);
         this.posts.forEach(post => {
           post.dateObj = new Date(+post.date);
         });
