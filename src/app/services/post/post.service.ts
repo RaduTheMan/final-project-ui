@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Post } from './types/post.type';
 
@@ -8,6 +8,9 @@ import { Post } from './types/post.type';
   providedIn: 'root'
 })
 export class PostService {
+
+  arePostsLoaded$ = new BehaviorSubject<boolean>(true);
+
   constructor(private http: HttpClient) {}
 
   //   getUser(id: String): Observable<User> {

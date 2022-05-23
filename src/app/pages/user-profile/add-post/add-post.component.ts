@@ -20,7 +20,6 @@ export class AddPostComponent {
   addOnBlur = true;
   selectedFile: File | null = null;
   formGroup: FormGroup;
-  isLoading: boolean = false;
   userId: string;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
@@ -47,9 +46,9 @@ export class AddPostComponent {
   }
 
   onPost(): void {
-    console.log(this.formGroup.getRawValue());
-    this.isLoading = true;
     const formValue = { ...this.formGroup.getRawValue(), name: this.user?.name, imgUrl: this.user?.imageUrl };
+    this.formGroup.reset();
+    this.postService.arePostsLoaded$.next(false);
     if (this.selectedFile) {
       const toBase64Obs = from(toBase64(this.selectedFile!));
       toBase64Obs
@@ -60,9 +59,13 @@ export class AddPostComponent {
           }),
           untilDestroyed(this)
         )
-        .subscribe();
+        .subscribe(_ => {
+          this.postService.arePostsLoaded$.next(true);
+        });
     } else {
-      this.postService.createPost(formValue, this.userId).pipe(untilDestroyed(this)).subscribe();
+      this.postService.createPost(formValue, this.userId).pipe(untilDestroyed(this)).subscribe(_ => {
+        this.postService.arePostsLoaded$.next(true);
+      });
     }
   }
 }
