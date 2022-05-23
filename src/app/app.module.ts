@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent, LoginComponent } from './pages';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './pages';
 import { SharedModule } from './shared/shared.module';
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 import { UserInfoComponent } from './pages/user-profile/user-info/user-info.component';
@@ -18,15 +18,16 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPostComponent } from './pages/user-profile/add-post/add-post.component';
+import { PostComponent } from './services/post/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent,
     UserProfileComponent,
     UserInfoComponent,
     UserPostsComponent,
+    PostComponent,
     SignUpModalComponent,
     AddPostComponent
   ],
@@ -36,7 +37,8 @@ import { AddPostComponent } from './pages/user-profile/add-post/add-post.compone
     AngularFirestoreModule,
     AngularFireAuthModule, 
     AppRoutingModule, 
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
+    FormsModule, 
     ReactiveFormsModule, 
     MaterialModule, 
     SharedModule,

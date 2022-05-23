@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   posts?: Post[];
   isLoading = true;
+ 
   constructor(private readonly postService: PostService) { }
 
   ngOnInit(): void {

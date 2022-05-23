@@ -11,3 +11,7 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.back-color {
+    background-color: rgb(196, 189, 189);
+}

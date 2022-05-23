@@ -36,9 +36,7 @@ export class AddPostComponent {
   }
 
   onFileSelected(event: any): void {
-    console.log('In file selected');
     this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
   }
 
   onAddPictures(): void {
@@ -52,6 +50,7 @@ export class AddPostComponent {
     this.postService.arePostsLoaded$.next(false);
     if (this.selectedFile) {
       const toBase64Obs = from(toBase64(this.selectedFile!));
+      this.selectedFile = null;
       toBase64Obs
         .pipe(
           switchMap(base64 => {

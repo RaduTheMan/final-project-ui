@@ -1,0 +1,49 @@
+<div class="row g-0">
+  <div class="col">
+    <div class="card-body">
+      <a [routerLink]="['/profile', post.userId]">
+        <div class="d-flex flex-row">
+          <div class="">
+            <img src="{{ post.userImgUrl }}" class="img-fluid rounded-circle standard-max-size pt-md-3" />
+          </div>
+          <div class="ms-3 my-auto">
+            <h5>{{ post.name }}</h5>
+            <div class="row">
+              <span>{{ post.dateObj | date: 'medium' }}</span>
+            </div>
+          </div>
+        </div>
+      </a>
+      <h3 class="mt-5 ms-sm-5">{{ post.title }}</h3>
+      <hr class="px-sm-5" />
+      <div *ngIf="post.imgUrl" class="col-md-10 px-sm-4 mx-auto">
+        <img src="{{ post.imgUrl }}" class="img-fluid pt-md-3" alt="profile pic" />
+      </div>
+      <pre class="card-text mx-3 mt-4">
+        {{ post.content }}
+      </pre>
+      <div class="d-flex flex-row-reverse">
+        <button mat-flat-button class="back-color" (click)="onTranslate(post)">
+          <mat-icon>translate</mat-icon>
+          Translate
+        </button>
+        <mat-form-field class="me-2 reset-padding" appearance="fill">
+          <mat-label>Language</mat-label>
+          <mat-select [(ngModel)]="selectedLanguage" name="food">
+            <mat-option *ngFor="let language of languages" [value]="language.value">
+              {{language.display}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button *ngIf="!isPlayed" mat-flat-button class="back-color me-2" (click)="onListen(post)">
+          <mat-icon>play_circle_outline</mat-icon>
+          Listen
+        </button>
+        <button *ngIf="isPlayed" mat-flat-button class="back-color me-2" (click)="onPause()">
+          <mat-icon>pause_circle_outline</mat-icon>
+          Pause
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

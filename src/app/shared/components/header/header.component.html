@@ -34,15 +34,11 @@
           <a class="nav-link" routerLink="">Home</a>
         </li>
         <li class="nav-item" *ngIf="authService.isLoggedIn">
-          <a class="nav-link" [routerLink]="['profile', authService.userId]">Profile</a>
+          <a class="nav-link" (click)="onProfileClick()">Profile</a>
         </li>
         <li class="nav-item dropdown" *ngIf="!authService.isLoggedIn">
             <app-sign-up></app-sign-up>
         </li>
-        <li class="nav-item dropdown" *ngIf="!authService.isLoggedIn">
-          <a class="nav-link dropdown-toggle" routerLink="login">Login</a>
-        </li>
-       
         <li class="nav-item" *ngIf="authService.isLoggedIn">
           <a class="nav-link" (click)="onLogout()">Logout</a>
         </li>

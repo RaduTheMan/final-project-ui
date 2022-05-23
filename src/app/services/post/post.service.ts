@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Post } from './types/post.type';
 
@@ -8,7 +8,6 @@ import { Post } from './types/post.type';
   providedIn: 'root'
 })
 export class PostService {
-
   arePostsLoaded$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient) {}
@@ -35,5 +34,31 @@ export class PostService {
   getAllPosts(): Observable<Post[]> {
     const url = `${environment.apiUrl}/api/posts`;
     return this.http.get<Post[]>(url);
+  }
+
+  translatePost(
+    originalTitle: string, 
+    originalContent: string, 
+    target: string
+  ): Observable<{translatedTitle: string; translatedContent: string;}> {
+    const url = `${environment.apiUrl}/api/post-translate`;
+    const params = new HttpParams()
+      .set('originalTitle', originalTitle)
+      .set('originalText', originalContent)
+      .set('target', target);
+    return this.http.get<[string, string]>(url, { params }).pipe(map(([translatedTitle, translatedContent]) => {
+      return {
+        translatedTitle, 
+        translatedContent
+      };
+    }));
+  }
+
+  getAudioFromPost(title: string, content: string): Observable<unknown> {
+    const url = `${environment.apiUrl}/api/post-audio`;
+    const params = new HttpParams()
+      .set('title', title)
+      .set('content', content);
+    return this.http.get(url, { params });
   }
 }
